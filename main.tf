@@ -12,6 +12,7 @@ terraform {
 # Configuración del provider de Azure
 provider "azurerm" {
   features {}
+  resource_provider_registrations = "none"
 }
 
 # Grupo de recursos
