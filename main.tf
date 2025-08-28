@@ -39,8 +39,8 @@ module "azure_infra" {
   resource_group_name = data.azurerm_resource_group.rg.name
   myself              = var.myself
   region              = var.region
-  create_vm           = false
-  create_storage      = false
+  create_vm           = true
+  create_storage      = true
   cidr_network        = "10.200.0.0/16"
   cidr_vms_network    = "10.200.0.0/23"
 }
