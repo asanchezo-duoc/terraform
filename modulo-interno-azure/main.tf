@@ -61,3 +61,28 @@ resource "azurerm_storage_account" "my_storage_account" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
+
+output "vnet_id" {
+  description = "The ID of the Virtual Network."
+  value       = azurerm_virtual_network.my_vnet.id
+}
+
+output "vnet_name" {
+  description = "The name of the Virtual Network."
+  value       = azurerm_virtual_network.my_vnet.name
+}
+
+output "storage_account_name" {
+  description = "The name of the Storage Account."
+  value       = azurerm_storage_account.my_storage_account.name
+}
+
+output "vm_public_ip" {
+  description = "The public IP address of the Virtual Machine."
+  value       = azurerm_public_ip.public_ip.ip_address
+}
+
+output "vm_dns_name" {
+  description = "The DNS name of the Virtual Machine."
+  value       = azurerm_public_ip.public_ip.fqdn
+}
