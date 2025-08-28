@@ -16,6 +16,16 @@ variable "resource_group_name" {
   type        = string
 }
 
+variable "cidr_network" {
+  description = "Nombre del grupo de recursos"
+  type        = string
+}
+
+variable "cidr_vms_network" {
+  description = "Nombre del grupo de recursos"
+  type        = string
+}
+
 variable "create_vm" {
   description = "Crear máquina virtual"
   type        = bool

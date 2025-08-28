@@ -41,6 +41,8 @@ module "azure_infra" {
   region              = var.region
   create_vm           = false
   create_storage      = false
+  cidr_network        = "10.200.0.0/16"
+  cidr_vms_network    = "10.200.0.0/23"
 }
 
 # Outputs del módulo
