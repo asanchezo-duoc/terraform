@@ -40,3 +40,19 @@ module "azure_infra" {
   myself              = var.myself
   region              = var.region
 }
+
+# Outputs del módulo
+output "virtual_network_id" {
+  description = "ID de la Virtual Network creada"
+  value       = module.azure_infra.vnet_id
+}
+
+output "virtual_network_name" {
+  description = "Nombre de la Virtual Network creada"
+  value       = module.azure_infra.vnet_name
+}
+
+output "storage_account_name" {
+  description = "Nombre de la Storage Account creada"
+  value       = module.azure_infra.storage_account_name
+}
