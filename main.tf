@@ -20,3 +20,24 @@ provider "azurerm" {
 data "azurerm_resource_group" "rg" {
   name = "AreaInfraestructura"
 }
+
+# Variables
+variable "myself" {
+  description = "Dato unico para no sobre escribir cosas ajenas."
+  type        = string
+  default     = "a.sanchezo"
+}
+
+variable "region" {
+    description = "Region"
+    type        = string
+    default     = "East US 2"
+}
+
+
+module "azure_infra" {
+  source              = "./modulo-interno-azure"
+  resource_group_name = data.azurerm_resource_group.rg.name
+  myself              = "a.sanchezo"
+  region              = "East US 2"
+}
