@@ -55,7 +55,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
 # Create an Azure Storage Account
 resource "azurerm_storage_account" "my_storage_account" {
-  name                     = "${var.myself}-storage-account" 
+  name                     = "replace("${var.myself}storageaccount", ".", "")" 
   resource_group_name      = var.resource_group_name
   location                 = var.region
   account_tier             = "Standard"
