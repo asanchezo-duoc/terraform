@@ -14,6 +14,7 @@ resource "azurerm_subnet" "my_vms_net" {
 
 # Interfaz de red
 resource "azurerm_network_interface" "nic" {
+  count               = var.create_vm ? 1 : 0
   name                = "${var.myself}-nic"
   location            = var.region
   resource_group_name = var.resource_group_name
@@ -27,6 +28,7 @@ resource "azurerm_network_interface" "nic" {
 
 # Create a Linux Virtual Machine
 resource "azurerm_linux_virtual_machine" "vm" {
+  count               = var.create_vm ? 1 : 0
   name                            = "${var.myself}-vm1-linux"
   resource_group_name             = var.resource_group_name
   location                        = var.region
@@ -55,6 +57,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
 # Create an Azure Storage Account
 resource "azurerm_storage_account" "my_storage_account" {
+  count                    = var.create_storage ? 1 : 0
   name                     = replace("${var.myself}storageaccount", ".", "")
   resource_group_name      = var.resource_group_name
   location                 = var.region
