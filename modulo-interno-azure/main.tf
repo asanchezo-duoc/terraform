@@ -28,14 +28,14 @@ resource "azurerm_network_interface" "nic" {
 
 # Create a Linux Virtual Machine
 resource "azurerm_linux_virtual_machine" "vm" {
-  count               = var.create_vm ? 1 : 0
+  count                           = var.create_vm ? 1 : 0
   name                            = "${var.myself}-vm1-linux"
   resource_group_name             = var.resource_group_name
   location                        = var.region
   size                            = "Standard_DS1_v2"
   admin_username                  = "azureuser"
   disable_password_authentication = true
-  network_interface_ids           = [azurerm_network_interface.nic.id]
+  network_interface_ids           = [azurerm_network_interface.nic[0].id]
 
   admin_ssh_key {
     username   = "azureuser"
@@ -77,10 +77,10 @@ output "vnet_name" {
 
 output "storage_account_name" {
   description = "The name of the Storage Account."
-  value       = azurerm_storage_account.my_storage_account.name
+  value       = var.create_storage ? azurerm_storage_account.my_storage_account[0].name : null
 }
 
 output "vm_private_ip" {
   description = "The private IP address of the Virtual Machine."
-  value       = azurerm_network_interface.nic.private_ip_address
+  value       = var.create_vm ? azurerm_network_interface.nic[0].private_ip_address : null
 }
