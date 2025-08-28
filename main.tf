@@ -34,10 +34,9 @@ variable "region" {
     default     = "East US 2"
 }
 
-
 module "azure_infra" {
   source              = "./modulo-interno-azure"
   resource_group_name = data.azurerm_resource_group.rg.name
-  myself              = "a.sanchezo"
-  region              = "East US 2"
+  myself              = var.myself
+  region              = var.region
 }
