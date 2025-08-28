@@ -18,6 +18,6 @@ provider "azurerm" {
 
 # Grupo de recursos
 resource "azurerm_resource_group" "rg" {
-  name     = "infracomocodigoduoc2025"
+  name     = "AreaInfraestructura"
   location = "East US 2"
 }
