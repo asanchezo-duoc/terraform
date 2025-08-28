@@ -76,3 +76,8 @@ output "storage_account_name" {
   description = "The name of the Storage Account."
   value       = azurerm_storage_account.my_storage_account.name
 }
+
+output "vm_private_ip" {
+  description = "The private IP address of the Virtual Machine."
+  value       = azurerm_network_interface.nic.private_ip_address
+}

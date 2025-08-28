@@ -56,3 +56,8 @@ output "storage_account_name" {
   description = "Nombre de la Storage Account creada"
   value       = module.azure_infra.storage_account_name
 }
+
+output "vm_private_ip" {
+  description = "IP privada de la Máquina Virtual"
+  value       = module.azure_infra.vm_private_ip
+}
